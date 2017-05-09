@@ -1,7 +1,7 @@
 <div class="row tales-row">
     <div class="tales-container">
         <% loop $getAllTales %>
-            <% with $CoverImage.Fit(300,300) %>
+            <% with $CoverImage.Fit(600,600) %>
                 <div class="tale-panel" v-on:click="onTaleClick($Up.Up.ID)" data-toggle="modal" data-target="#taleModal" style="background-image: url($Url)">
                     <h1 class="tale-title">$Up.Up.Title</h1>
                 </div>
