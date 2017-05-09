@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c3c5fdd2bab1a9c0211bdf172da20ba0",
-    "content-hash": "469383f6d5bb69e957288be1959e8b6b",
+    "hash": "08ecc98630d7446a9207576b9c1dfe4e",
+    "content-hash": "9a0545c10cdac571a4b3c80db9ec4a90",
     "packages": [
         {
             "name": "composer/installers",
@@ -120,6 +120,45 @@
                 "zikula"
             ],
             "time": "2017-04-24 06:37:16"
+        },
+        {
+            "name": "jonom/focuspoint",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jonom/silverstripe-focuspoint.git",
+                "reference": "716a44b2d7f72d190121fa1e15da1f0b17ec147c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jonom/silverstripe-focuspoint/zipball/716a44b2d7f72d190121fa1e15da1f0b17ec147c",
+                "reference": "716a44b2d7f72d190121fa1e15da1f0b17ec147c",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^3.3"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathon Menz",
+                    "homepage": "http://jonathonmenz.com"
+                }
+            ],
+            "description": "Smarter automatic image cropping for SilverStripe",
+            "keywords": [
+                "crop",
+                "cropping",
+                "focus",
+                "focuspoint",
+                "image",
+                "silverstripe"
+            ],
+            "time": "2017-03-22 23:16:19"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -357,6 +396,51 @@
                 "siteconfig"
             ],
             "time": "2016-12-22 00:18:45"
+        },
+        {
+            "name": "thisisbd/silverstripe-fixjpeg-orientation",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dljoseph/silverstripe-fixjpeg-orientation.git",
+                "reference": "2ba584d8b3df6ae2e5dd713b5855ea4111fa3d4f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dljoseph/silverstripe-fixjpeg-orientation/zipball/2ba584d8b3df6ae2e5dd713b5855ea4111fa3d4f",
+                "reference": "2ba584d8b3df6ae2e5dd713b5855ea4111fa3d4f",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "fixjpeg-orientation"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Darren-Lee Joseph",
+                    "email": "darrenleejoseph@gmail.com"
+                }
+            ],
+            "description": "SilverStripe Fix JPEG Orientation Module. Ensures that JPEG images uploaded from a mobile are rotated and saved upright according their orientation value for consistent viewing when displayed on a web page.",
+            "homepage": "http://github.com/thisisbd/silverstripe-fixjpeg-orientation",
+            "keywords": [
+                "exif orientation",
+                "fix image orientation",
+                "fix jpeg orientation",
+                "jpeg orientation",
+                "jpeg rotation",
+                "mobile images",
+                "silverstripe"
+            ],
+            "time": "2015-02-21 09:13:05"
         }
     ],
     "packages-dev": [
