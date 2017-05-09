@@ -59,6 +59,12 @@ class Page_Controller extends ContentController {
         // Combine js files
         Requirements::combine_files('scripts.js', $JSFiles);
 	}
+    
+    public function getTales()
+    {
+        return $tales = Tale::get();
+    }
+    
 
 	public function allTales()
     {

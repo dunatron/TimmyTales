@@ -24,9 +24,14 @@
                         Tales List <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li v-for="tale in tales.items">
-                            <a v-bind:href="tale.ID">{{ tale.Title }}</a>
-                        </li>
+                        <%--<li v-for="tale in tales.items">--%>
+                            <%--<a v-bind:href="tale.ID">{{ tale.Title }}</a>--%>
+                        <%--</li>--%>
+                        <% loop $getTales %>
+                            <li>
+                                <a href="" v-on:click="onTaleClick($ID)" data-toggle="modal" data-target="#taleModal" class="tale-title">$Title</a>
+                            </li>
+                        <% end_loop %>
                     </ul>
                 </li>
             </ul>

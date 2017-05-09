@@ -89,7 +89,10 @@ nav.tales-nav {
         color: $c_tertiary;
       }
       .dropdown-menu {
-
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
         @media screen and (min-width: $break_medium) {
           display: flex;
           flex-wrap: wrap;
