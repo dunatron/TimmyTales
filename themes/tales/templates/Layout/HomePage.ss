@@ -2,8 +2,8 @@
     <div class="tales-container">
         <% loop $getAllTales %>
             <% with $CoverImage.Fit(600,600) %>
-                <div class="tale-panel" v-on:click="onTaleClick($Up.Up.ID)" data-toggle="modal" data-target="#taleModal" style="background-image: url($Url)">
-                    <h1 class="tale-title">$Up.Up.Title</h1>
+                <div class="tale-panel"  style="background-image: url($Url)">
+                    <h1 class="tale-title" v-on:click="onTaleClick($Up.Up.ID)" data-toggle="modal" data-target="#taleModal">$Up.Up.Title</h1>
                 </div>
             <% end_with %>
         <% end_loop %>

@@ -67,6 +67,9 @@
       text-align: center;
       padding: 20px 30px;
       margin: 0 auto;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

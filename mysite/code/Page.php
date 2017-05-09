@@ -110,4 +110,10 @@ class Page_Controller extends ContentController {
         return $encode;
     }
 
+    public function getTimmySVGIcon()
+    {
+        $theme = $this->ThemeDir();
+        return file_get_contents('../' . $theme . '/images/svg/timmy.svg');
+    }
+
 }

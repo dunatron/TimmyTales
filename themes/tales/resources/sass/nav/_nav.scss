@@ -2,21 +2,113 @@ nav.tales-nav {
   height: $nav_bar_height;
   border-bottom: $nav_border_thickness solid $c_primary;
   background-color: $c_nav_bg;
+  .navbar-brand {
+    color: $c_primary;
+    padding: 0 15px;
+    &:hover,&:focus {
+      color: $c_tertiary;
+    }
+    .timmy-svg {
+      height: 50px;
+      fill: $c_primary;
+      &:hover {
+        fill: $c_tertiary;
+      }
+    }
+  }
+  .navbar-toggle {
+    border-color: $c_secondary;
+    border-radius: 0;
+    &:hover,&:active,&:focus {
+      background-color: $c_primary;
+      .icon-bar {
+        background-color: $c_secondary;
+      }
+    }
+    .icon-bar {
+      background-color: $c_primary;
+    }
+  }
   .navbar-nav  {
     li {
       a {
         color: $c_primary;
+        &:hover {
+          color:$c_tertiary;
+        }
       }
     }
+    .dropdown {
+
+    }
+
     .dropdown-menu {
       background-color: $c_nav_bg;
+      //border-color: $c_primary;
+      border: 0;
+      border-top: 1px solid $c_primary;
+      border-radius: 0;
+      padding: 0;
+
+      @media screen and (min-width: $break_medium) {
+        display: none;
+      }
+      li {
+        flex-grow: 1;
+        padding: 0;
+        display: inline-block !important;
+        min-width: 100px;
+        @media screen and (min-width: $break_medium) {
+          min-width: 0;
+          display: none;
+        }
+        a {
+          text-align: center;
+          color: $c_primary !important;
+          padding: 15px 15px;
+          &:hover {
+            background-color: $c_primary !important;
+            color:$c_tertiary !important;
+          }
+        }
+      }
+    }
+    .dropdown.open {
+
+      .dropdown-toggle {
+        background-color: $c_primary;
+        color: $c_tertiary;
+      }
+      .dropdown-menu {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+        @media screen and (min-width: $break_medium) {
+          min-width: 420px;
+        }
+        @media screen and (min-width: $break_large) {
+          min-width: 800px;
+        }
+      }
     }
     .dropdown-menu.open {
       background-color: $c_nav_bg;
+      li {
+        display: inline-block !important;
+        a {
+          color: $c_primary;
+          &:hover {
+            color:$c_tertiary;
+          }
+        }
+      }
     }
+
   }
 }
 
 #TimmyTalesNav {
   background-color: $c_nav_bg;
+  border-color: $c_primary;
 }
