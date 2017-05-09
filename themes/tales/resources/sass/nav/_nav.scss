@@ -54,11 +54,11 @@ nav.tales-nav {
         display: none;
       }
       li {
-        flex-grow: 1;
         padding: 0;
         display: inline-block !important;
         min-width: 100px;
         @media screen and (min-width: $break_medium) {
+          flex-grow: 1;
           min-width: 0;
           display: none;
         }
@@ -80,11 +80,12 @@ nav.tales-nav {
         color: $c_tertiary;
       }
       .dropdown-menu {
-        display: flex;
-        flex-wrap: wrap;
-        align-content: center;
-        align-items: center;
+
         @media screen and (min-width: $break_medium) {
+          display: flex;
+          flex-wrap: wrap;
+          align-content: center;
+          align-items: center;
           min-width: 420px;
         }
         @media screen and (min-width: $break_large) {

@@ -3221,14 +3221,14 @@ nav.tales-nav {
       nav.tales-nav .navbar-nav .dropdown-menu {
         display: none; } }
     nav.tales-nav .navbar-nav .dropdown-menu li {
-      -webkit-box-flex: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1;
       padding: 0;
       display: inline-block !important;
       min-width: 100px; }
       @media screen and (min-width: 768px) {
         nav.tales-nav .navbar-nav .dropdown-menu li {
+          -webkit-box-flex: 1;
+              -ms-flex-positive: 1;
+                  flex-grow: 1;
           min-width: 0;
           display: none; } }
       nav.tales-nav .navbar-nav .dropdown-menu li a {
@@ -3241,23 +3241,22 @@ nav.tales-nav {
   nav.tales-nav .navbar-nav .dropdown.open .dropdown-toggle {
     background-color: #00b1b3;
     color: #FFF; }
-  nav.tales-nav .navbar-nav .dropdown.open .dropdown-menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -ms-flex-line-pack: center;
-        align-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; }
-    @media screen and (min-width: 768px) {
-      nav.tales-nav .navbar-nav .dropdown.open .dropdown-menu {
-        min-width: 420px; } }
-    @media screen and (min-width: 1200px) {
-      nav.tales-nav .navbar-nav .dropdown.open .dropdown-menu {
-        min-width: 800px; } }
+  @media screen and (min-width: 768px) {
+    nav.tales-nav .navbar-nav .dropdown.open .dropdown-menu {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -ms-flex-line-pack: center;
+          align-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      min-width: 420px; } }
+  @media screen and (min-width: 1200px) {
+    nav.tales-nav .navbar-nav .dropdown.open .dropdown-menu {
+      min-width: 800px; } }
   nav.tales-nav .navbar-nav .dropdown-menu.open {
     background-color: #4d545d; }
     nav.tales-nav .navbar-nav .dropdown-menu.open li {
