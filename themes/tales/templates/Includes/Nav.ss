@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="$AbsoluteBaseURL">$getTimmySVGIcon</a>
+            <a class="navbar-brand" href="$AbsoluteBaseURL">$getTimmySVGIcon <span>Timmy Tales</span></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

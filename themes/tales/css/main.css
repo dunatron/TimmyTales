@@ -3190,14 +3190,26 @@ nav.tales-nav {
   background-color: #4d545d; }
   nav.tales-nav .navbar-brand {
     color: #00b1b3;
-    padding: 0 15px; }
+    padding: 0 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
     nav.tales-nav .navbar-brand:hover, nav.tales-nav .navbar-brand:focus {
       color: #FFF; }
+      nav.tales-nav .navbar-brand:hover .timmy-svg, nav.tales-nav .navbar-brand:focus .timmy-svg {
+        fill: #FFF; }
     nav.tales-nav .navbar-brand .timmy-svg {
       height: 50px;
       fill: #00b1b3; }
       nav.tales-nav .navbar-brand .timmy-svg:hover {
         fill: #FFF; }
+    nav.tales-nav .navbar-brand span {
+      padding: 0 0 0 15px; }
   nav.tales-nav .navbar-toggle {
     border-color: #4d545d;
     border-radius: 0; }

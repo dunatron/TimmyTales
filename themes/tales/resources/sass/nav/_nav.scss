@@ -5,8 +5,14 @@ nav.tales-nav {
   .navbar-brand {
     color: $c_primary;
     padding: 0 15px;
+    display: flex;
+    align-content: center;
+    align-items: center;
     &:hover,&:focus {
       color: $c_tertiary;
+      .timmy-svg {
+        fill: $c_tertiary;
+      }
     }
     .timmy-svg {
       height: 50px;
@@ -14,6 +20,9 @@ nav.tales-nav {
       &:hover {
         fill: $c_tertiary;
       }
+    }
+    span {
+      padding: 0 0 0 15px;
     }
   }
   .navbar-toggle {
