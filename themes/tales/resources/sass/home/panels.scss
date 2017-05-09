@@ -2,7 +2,7 @@
   position: relative;
   .scroll-right {
     position: absolute;
-    top: 45%;
+    top: calc(50% - #{$Arrow_dimension / 2});
     right: 40px;
     height: 60px;
     width: 60px;
@@ -16,10 +16,10 @@
   }
   .scroll-left {
     position: absolute;
-    top: 45%;
+    top: calc(50% - #{$Arrow_dimension / 2});
     left: 40px;
-    height: 60px;
-    width: 60px;
+    height: $Arrow_dimension;
+    width: $Arrow_dimension;
     border-left: 3px solid $c_primary;
     border-top: 3px solid $c_primary;
     transform: rotate(-45deg);
@@ -39,6 +39,7 @@
   height: calc(100vh - #{$nav_bar_height + $nav_margin_bottom});
   @media screen and (min-width: $break_medium) {
     flex-direction: column;
+    overflow: hidden;
   }
   .tale-panel {
     flex-grow: 1;
@@ -51,12 +52,15 @@
     background-position: center;
     background-size: cover;
     border: 5px solid $c_secondary;
+    overflow: hidden;
+    //overflow-y: scroll;
+    position: relative;
     @media screen and (min-width: $break_medium) {
       height: 50%;
       width: 50%;
     }
-    position: relative;
-    overflow-y: scroll;
+
+
     img {
       position: relative;
     }

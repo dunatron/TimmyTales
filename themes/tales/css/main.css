@@ -3286,7 +3286,7 @@ nav.tales-nav {
   position: relative; }
   .tales-row .scroll-right {
     position: absolute;
-    top: 45%;
+    top: calc(50% - 30px);
     right: 40px;
     height: 60px;
     width: 60px;
@@ -3300,7 +3300,7 @@ nav.tales-nav {
         display: block; } }
   .tales-row .scroll-left {
     position: absolute;
-    top: 45%;
+    top: calc(50% - 30px);
     left: 40px;
     height: 60px;
     width: 60px;
@@ -3330,7 +3330,8 @@ nav.tales-nav {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
           -ms-flex-direction: column;
-              flex-direction: column; } }
+              flex-direction: column;
+      overflow: hidden; } }
   .tales-container .tale-panel {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
@@ -3349,8 +3350,8 @@ nav.tales-nav {
     background-position: center;
     background-size: cover;
     border: 5px solid #4d545d;
-    position: relative;
-    overflow-y: scroll; }
+    overflow: hidden;
+    position: relative; }
     @media screen and (min-width: 768px) {
       .tales-container .tale-panel {
         height: 50%;

@@ -23,6 +23,5 @@ siteconfig/
 web.config
 fixjpeg-orientation/
 focuspoint/
-
-
-
+themes/tales/node_modules/
+themes/tales/combinedfiles/
