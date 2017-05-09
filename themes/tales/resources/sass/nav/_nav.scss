@@ -1,0 +1,22 @@
+nav.tales-nav {
+  height: $nav_bar_height;
+  border-bottom: $nav_border_thickness solid $c_primary;
+  background-color: $c_nav_bg;
+  .navbar-nav  {
+    li {
+      a {
+        color: $c_primary;
+      }
+    }
+    .dropdown-menu {
+      background-color: $c_nav_bg;
+    }
+    .dropdown-menu.open {
+      background-color: $c_nav_bg;
+    }
+  }
+}
+
+#TimmyTalesNav {
+  background-color: $c_nav_bg;
+}

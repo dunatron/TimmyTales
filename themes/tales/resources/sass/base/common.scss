@@ -1,0 +1,16 @@
+h1, h2, h3, p, a {
+  font-family: $font_GustanLight;
+  color: $c_primary;
+}
+
+.main-content {
+  margin-top: #{$nav_bar_height + $nav_margin_bottom};
+}
+
+.not-visible {
+  visibility: hidden;
+}
+
+.is-visible {
+  visibility: visible;
+}

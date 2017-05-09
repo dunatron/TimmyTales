@@ -1,0 +1,7 @@
+---
+Name: talesiteroutes
+After: framework/routes#coreroutes
+---
+Director:
+  rules:
+    'pagefunction//$Action/$ID'  : 'Page_Controller'
