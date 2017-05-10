@@ -3306,7 +3306,7 @@ nav.tales-nav {
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
     display: none; }
-    @media screen and (min-width: 768px) {
+    @media (min-width: 768px) {
       .tales-row .scroll-right {
         display: block; } }
   .tales-row .scroll-left {
@@ -3320,7 +3320,7 @@ nav.tales-nav {
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
     display: none; }
-    @media screen and (min-width: 768px) {
+    @media (min-width: 768px) {
       .tales-row .scroll-left {
         display: block; } }
 
@@ -3336,7 +3336,7 @@ nav.tales-nav {
           flex-direction: row;
   overflow: scroll;
   height: calc(100vh - 52px); }
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     .tales-container {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
@@ -3363,7 +3363,7 @@ nav.tales-nav {
     border: 5px solid #4d545d;
     overflow: hidden;
     position: relative; }
-    @media screen and (min-width: 768px) {
+    @media (min-width: 768px) {
       .tales-container .tale-panel {
         height: 50%;
         width: 50%; } }

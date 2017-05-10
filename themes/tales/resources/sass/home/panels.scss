@@ -10,9 +10,10 @@
     border-top: 3px solid $c_primary;
     transform: rotate(45deg);
     display: none;
-    @media screen and (min-width: $break_medium) {
+    @include breakpoint($break_medium){
       display: block;
     }
+
   }
   .scroll-left {
     position: absolute;
@@ -24,7 +25,7 @@
     border-top: 3px solid $c_primary;
     transform: rotate(-45deg);
     display: none;
-    @media screen and (min-width: $break_medium) {
+    @include breakpoint($break_medium){
       display: block;
     }
   }
@@ -37,7 +38,7 @@
   flex-direction: row;
   overflow: scroll;
   height: calc(100vh - #{$nav_bar_height + $nav_margin_bottom});
-  @media screen and (min-width: $break_medium) {
+  @include breakpoint($break_medium){
     flex-direction: column;
     overflow: hidden;
   }
@@ -55,7 +56,7 @@
     overflow: hidden;
     //overflow-y: scroll;
     position: relative;
-    @media screen and (min-width: $break_medium) {
+    @include breakpoint($break_medium){
       height: 50%;
       width: 50%;
     }
