@@ -15,7 +15,6 @@ export default function scrollableTales()
     $(talesContainer).scroll(function(){
 
         var currX = $(this).scrollLeft();
-        console.log(currX);
 
         if (currX >= 80)
         {
@@ -47,7 +46,6 @@ export default function scrollableTales()
 
     $(rightArrow).on('click', function(){
         var leftPos = $(talesContainer).scrollLeft();
-        console.log(leftPos);
         $(talesContainer).animate({
             scrollLeft: leftPos + TaleWidth
         }, 800);
@@ -55,7 +53,6 @@ export default function scrollableTales()
 
     $(leftArrow).on('click', function(){
         var leftPos = $(talesContainer).scrollLeft();
-        console.log(leftPos);
         $(talesContainer).animate({
             scrollLeft: leftPos - TaleWidth
         }, 800);

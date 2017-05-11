@@ -10,4 +10,13 @@ $( document ).ready(function() {
         // No scrollable Tales
     }
 
+    // $( window ).resize(function() {
+    //     if ($(window).width() > 768) {
+    //         scrollableTales();
+    //     }
+    //     else {
+    //         // No scrollable Tales
+    //     }
+    // });
+
 });

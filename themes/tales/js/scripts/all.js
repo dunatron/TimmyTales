@@ -15,9 +15,17 @@ $(document).ready(function () {
 
     if ($(window).width() > 768) {
         (0, _partsScrollableTales2['default'])();
-    } else {
-        // No scrollable Tales
-    }
+    } else {}
+    // No scrollable Tales
+
+    // $( window ).resize(function() {
+    //     if ($(window).width() > 768) {
+    //         scrollableTales();
+    //     }
+    //     else {
+    //         // No scrollable Tales
+    //     }
+    // });
 });
 
 },{"./parts/custom-vue":3,"./parts/scrollable-tales":4}],2:[function(require,module,exports){
@@ -142,7 +150,6 @@ function scrollableTales() {
     $(talesContainer).scroll(function () {
 
         var currX = $(this).scrollLeft();
-        console.log(currX);
 
         if (currX >= 80) {
             setVisible(leftArrow);
@@ -169,7 +176,6 @@ function scrollableTales() {
 
     $(rightArrow).on('click', function () {
         var leftPos = $(talesContainer).scrollLeft();
-        console.log(leftPos);
         $(talesContainer).animate({
             scrollLeft: leftPos + TaleWidth
         }, 800);
@@ -177,7 +183,6 @@ function scrollableTales() {
 
     $(leftArrow).on('click', function () {
         var leftPos = $(talesContainer).scrollLeft();
-        console.log(leftPos);
         $(talesContainer).animate({
             scrollLeft: leftPos - TaleWidth
         }, 800);

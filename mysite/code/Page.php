@@ -122,4 +122,10 @@ class Page_Controller extends ContentController {
         return file_get_contents('../' . $theme . '/images/svg/timmy.svg');
     }
 
+    public function getCloseIcon()
+    {
+        $theme = $this->ThemeDir();
+        return file_get_contents('../' . $theme . '/images/svg/close.svg');
+    }
+
 }

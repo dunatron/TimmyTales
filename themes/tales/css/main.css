@@ -3380,4 +3380,56 @@ nav.tales-nav {
 
 #taleModal .modal-dialog {
   width: 100%;
-  margin: 0; }
+  height: 100%;
+  margin: 0;
+  border-radius: 0; }
+
+#taleModal .modal-content {
+  min-height: 100%;
+  border: none;
+  border-radius: 0; }
+
+#taleModal .close-button {
+  position: absolute;
+  top: 0;
+  right: 0; }
+  #taleModal .close-button .close-svg {
+    height: 42px;
+    width: 42px;
+    fill: #00b1b3; }
+  #taleModal .close-button:hover {
+    cursor: pointer; }
+
+#taleModal .close-modal {
+  border: 1px solid #00b1b3; }
+
+#taleModal .current-tale {
+  display: inline-block; }
+  #taleModal .current-tale img {
+    width: 100%; }
+    @media (min-width: 768px) {
+      #taleModal .current-tale img {
+        width: 30%;
+        float: left;
+        margin: 0 20px 20px 0; } }
+  #taleModal .current-tale .tale-title {
+    font-size: 32px;
+    display: inline-block;
+    margin: 0 0 15px 0; }
+  #taleModal .current-tale .tale-content {
+    line-height: 24px; }
+    #taleModal .current-tale .tale-content h1, #taleModal .current-tale .tale-content h2, #taleModal .current-tale .tale-content h3, #taleModal .current-tale .tale-content h4, #taleModal .current-tale .tale-content p {
+      color: #4d545d; }
+
+#taleModal .modal-footer {
+  text-align: center; }
+  #taleModal .modal-footer .close-modal {
+    border: 1px solid #00b1b3;
+    display: inline-block;
+    padding: 8px 15px;
+    transition: color, background-color ease 0.5s;
+    color: #4d545d; }
+    #taleModal .modal-footer .close-modal:hover {
+      cursor: pointer;
+      background-color: #00b1b3;
+      color: #4d545d; }
