@@ -28,7 +28,9 @@ class Page_Controller extends ContentController {
 	private static $allowed_actions = array (
 	    'allTales',
         'TaleByID',
-        'TaleImageByID'
+        'TaleImageByID',
+        'TaleForm',
+        'processTaleForm'
 	);
 
 	public function init() {
@@ -99,7 +101,7 @@ class Page_Controller extends ContentController {
     */
     public function TaleByID(SS_HTTPRequest $request)
     {
-        error_log(var_export($request, true));
+        //error_log(var_export($request, true));
         $vars = json_decode($request->getBody());
 
         $tale = Tale::get()->byID($vars->taleID);
@@ -111,9 +113,64 @@ class Page_Controller extends ContentController {
         $object->ImageURL = $tale->CoverImage()->Filename;
 
         $encode = json_encode($object);
-        error_log(var_export($encode, true));
+        //error_log(var_export($encode, true));
 
         return $encode;
+    }
+
+    public function TaleForm()
+    {
+        $taleID = HiddenField::create('ID', 'Id Field');
+        $taleTitle = TextField::create('Title', 'Tale Title')->setAttribute('required', true)
+            ->setAttribute('v-model', 'TaleForm.Title');
+        $taleBody = HtmlEditorField::create('Content', 'Tale Content')->setAttribute('required', true)
+            ->setAttribute('v-model', 'TaleForm.Content');
+        // Add the fields to the FieldList
+        $fields = FieldList::create(
+            $taleID, $taleTitle, $taleBody
+        );
+
+        $actions = FieldList::create(
+            FormAction::create('processTaleForm')->setTitle('Submit')
+                ->setAttribute('v-on:click.prevent', 'onTaleFormSubmit')
+        );
+
+        $required = RequiredFields::create(array(
+           'Title', 'Content'
+        ));
+
+        $form = Form::create($this, 'TaleForm', $fields, $actions, $required);
+
+        $data = Session::get("FormData.{$form->getName()}.data");
+
+        return $data ? $form->loadDataFrom($data) : $form;
+    }
+
+    public function processTaleForm(SS_HTTPRequest $request)
+    {
+        $data = json_decode($request->getBody());
+
+        error_log(var_export($data->tale, true));
+        $TaleData = $data->tale;
+
+        error_log(var_export('TaleID' . $TaleData->ID, true));
+
+        $tale = Tale::create();
+        if($TaleData->ID)
+        {
+            $tale->ID = $TaleData->ID;
+        }
+        if($TaleData->Title)
+        {
+            $tale->Title = $TaleData->Title;
+        }
+        if($TaleData->Content)
+        {
+            $tale->Content = $TaleData->Content;
+        }
+        $tale->write();
+
+        return 'successful tale update';
     }
 
     public function getTimmySVGIcon()

@@ -45,16 +45,27 @@ export default function scrollableTales()
     }
 
     $(rightArrow).on('click', function(){
+        ScrollRight();
+    });
+
+    $(leftArrow).on('click', function(){
+        ScrollLeft();
+    });
+
+    function ScrollRight()
+    {
         var leftPos = $(talesContainer).scrollLeft();
         $(talesContainer).animate({
             scrollLeft: leftPos + TaleWidth
         }, 800);
-    });
+    }
 
-    $(leftArrow).on('click', function(){
+    function ScrollLeft()
+    {
         var leftPos = $(talesContainer).scrollLeft();
         $(talesContainer).animate({
             scrollLeft: leftPos - TaleWidth
         }, 800);
-    });
+    }
+
 }

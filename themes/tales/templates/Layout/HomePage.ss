@@ -15,3 +15,4 @@
 </div>
 
 <% include TaleModal %>
+<% include TaleFormModal %>

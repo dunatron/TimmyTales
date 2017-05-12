@@ -15,6 +15,8 @@
     $MetaTags(false)
 
     <link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ofayo7pakzulvwp4rzxfgb9ce6gzk3fqaah82rahrbild2bd"></script>
 </head>
 <body class="$ClassName">
 <div  id="TimmyTalesApp" >
