@@ -241,7 +241,11 @@ exports['default'] = new Vue({
                 content: '',
                 options: {
                     min_height: 400,
-                    selector: 'textarea#Form_TaleForm_Content'
+                    selector: 'textarea#Form_TaleForm_Content',
+                    plugins: ['autolink lists link preview anchor', 'fullscreen', 'table contextmenu'],
+                    toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent spellchecker',
+                    table_toolbar: "tableprops cellprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol"
+
                 }
             }
 
@@ -310,6 +314,9 @@ exports['default'] = new Vue({
             // console.log('oldVal' + oldVal);
             // console.log(this.CurrentTale.Title);
         }
+    },
+    mounted: function mounted() {
+        $(this.$refs.vuemodal).on("hidden.bs.modal", this.clearTaleForm);
     }
 
 });
