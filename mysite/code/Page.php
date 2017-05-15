@@ -120,7 +120,8 @@ class Page_Controller extends ContentController {
 
     public function TaleForm()
     {
-        $taleID = HiddenField::create('ID', 'Id Field');
+        $taleID = HiddenField::create('ID', 'Id Field')
+			->setAttribute('v-model', 'TaleForm.ID');
         $taleTitle = TextField::create('Title', 'Tale Title')->setAttribute('required', true)
             ->setAttribute('v-model', 'TaleForm.Title');
 //        $taleBody = HtmlEditorField::create('Content', 'Tale Content')->setAttribute('required', true)
