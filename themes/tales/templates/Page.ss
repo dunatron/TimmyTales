@@ -16,7 +16,7 @@
 
     <link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ofayo7pakzulvwp4rzxfgb9ce6gzk3fqaah82rahrbild2bd"></script>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=112fw5jwlc55nw92q8k9pkah3xwf4wuuph1fqa9doi1clj1v"></script>
 </head>
 <body class="$ClassName">
 <div  id="TimmyTalesApp" >
