@@ -1,5 +1,8 @@
 import Tale from './Tale';
 import TaleForm from './TaleForm';
+import VueTinymce from 'vue-tinymce';
+
+Vue.use(VueTinymce);
 
 export default new Vue({
     el: '#TimmyTalesApp',
@@ -8,7 +11,14 @@ export default new Vue({
         return {
             tales: [],
             CurrentTale: [],
-            TaleForm: []
+            TaleForm: [],
+            tinyMce: ({
+                selector: '#Form_TaleForm_Content',
+                editor: '',
+                content: '',
+                options: ({})
+            }),
+
         }
     },
 
@@ -16,6 +26,7 @@ export default new Vue({
     {
         Tale.all(tales => this.tales = tales);
     },
+
 
     methods: {
 
@@ -36,7 +47,14 @@ export default new Vue({
             let form = new TaleForm(this.TaleForm);
             form.UpdateValues();
             form.updateTale(this.TaleForm, (Data => this.CurrentTale.Title = this.TaleForm.Title), (Data => this.CurrentTale.Content = this.TaleForm.Content));
-        }
+        },
+        change() {
+            console.log('a tinyMCE  change');
+            // We could update the currentTale Content
+            this.CurrentTale.Content = this.tinyMce.editor;
+            this.TaleForm.Content = this.tinyMce.editor;
+        },
+
 
     },
     watch: {

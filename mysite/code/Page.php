@@ -123,8 +123,15 @@ class Page_Controller extends ContentController {
         $taleID = HiddenField::create('ID', 'Id Field');
         $taleTitle = TextField::create('Title', 'Tale Title')->setAttribute('required', true)
             ->setAttribute('v-model', 'TaleForm.Title');
-        $taleBody = HtmlEditorField::create('Content', 'Tale Content')->setAttribute('required', true)
-            ->setAttribute('v-model', 'TaleForm.Content');
+//        $taleBody = HtmlEditorField::create('Content', 'Tale Content')->setAttribute('required', true)
+//            ->setAttribute('v-model', 'tinyMce.editor')
+//            ->setAttribute(':options', 'tinyMce.options')
+//            ->setAttribute('@change', 'change')
+//            ->setAttribute(':content', 'tinyMce.content');
+
+        $taleBody = LiteralField::create('tinyMceTag',
+            '<tinymce id="Form_TaleForm_Content" v-model="tinyMce.editor" :options="tinyMce.options" @change="change" :content="tinyMce.content"></tinymce>');
+
         // Add the fields to the FieldList
         $fields = FieldList::create(
             $taleID, $taleTitle, $taleBody

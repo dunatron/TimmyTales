@@ -22,7 +22,8 @@
     "vue": "^2.3.3"
   },
   "dependencies": {
-    "babel-core": "^6.24.1"
+    "babel-core": "^6.24.1",
+    "vue-tinymce": "^1.0.5"
   },
   "description": ""
 }

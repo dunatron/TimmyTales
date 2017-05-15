@@ -1,10 +1,5 @@
 class TaleForm {
 
-    // constructor(Title, Content)
-    // {
-    //     this.Title = Title;
-    //     this.Content = Content;
-    // }
     constructor(form)
     {
         this.ID = form.ID;

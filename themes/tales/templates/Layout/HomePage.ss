@@ -16,3 +16,12 @@
 
 <% include TaleModal %>
 <% include TaleFormModal %>
+
+
+<%--
+<div id="app">
+    <tinymce id="editor" v-model="tinyMce.editor" :options="tinyMce.options" @change="change" :content='content'></tinymce>
+</div>
+
+<div v-html="tinyMce.editor"></div>
+--%>
