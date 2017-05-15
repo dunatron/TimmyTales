@@ -18,13 +18,15 @@ export default new Vue({
                 Content: ''
             }),
             tinyMce: ({
-                selector: '#Form_TaleForm_Content',
+                //selector: '#Form_TaleForm_Content',
                 min_height: 800,
                 editor: '',
                 content: '',
-                errors: {},
-                options: ({})
-            }),
+                options: ({
+                    min_height: 400,
+                    selector:'textarea#Form_TaleForm_Content'
+                })
+            })
 
         }
     },
@@ -44,11 +46,20 @@ export default new Vue({
         clearTale() {
             this.CurrentTale = ''; // clear CurrentTale data
         },
+        clearTaleForm(){
+            console.log('what a clear');
+            this.TaleForm.resetForm();
+            // this.tinyMce.editor = '';
+            // this.tinyMce.content = '';
+            this.TaleForm.clearTinyMCE();
+        },
         fillTaleForm() {
             //let form = new TaleForm(this.CurrentTale.Title, this.CurrentTale.Content);
-            let form = new TaleForm(this.CurrentTale); // Pass Current Tale Object to Form
-            form.fillForm();
-            this.TaleForm = form;
+            //let form = new TaleForm(this.CurrentTale); // Pass Current Tale Object to Form
+            //form.fillForm();
+            this.TaleForm.updateData(this.CurrentTale);
+            this.TaleForm.fillForm();
+            //this.TaleForm = form;
         },
         onTaleFormSubmit() {
             // let form = new TaleForm(this.TaleForm);

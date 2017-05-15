@@ -11,7 +11,7 @@
             </div>
             <%-- Modal Footer--%>
             <div class="modal-footer">
-                <div class="close-modal" data-dismiss="modal">Close Tale</div>
+                <div class="close-modal" data-dismiss="modal" v-on:click="clearTaleForm">Close Tale</div>
             </div>
 
         </div>

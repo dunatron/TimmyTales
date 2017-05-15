@@ -120,13 +120,27 @@ var TaleForm = (function () {
             console.log(this.Content);
         }
     }, {
+        key: 'updateData',
+        value: function updateData(formData) {
+            for (var field in formData) {
+                this[field] = formData[field];
+            }
+        }
+    }, {
         key: 'fillForm',
         value: function fillForm() {
-            this.tnyMCEInit();
+            var FormID = $('#Form_TaleForm_ID');
             var FormTitle = $('#Form_TaleForm_Title');
 
-            FormTitle.val(this.Title);
-            tinymce.get("Form_TaleForm_Content").execCommand('mceInsertContent', false, this.Content);
+            if (this.Title) {
+                FormTitle.val(this.Title);
+            }
+            if (this.Content) {
+                FormID.val(this.ID);
+            }
+            if (this.Content) {
+                tinymce.get("Form_TaleForm_Content").execCommand('mceInsertContent', false, this.Content);
+            }
         }
 
         // updateTale(taleForm, then){
@@ -145,6 +159,11 @@ var TaleForm = (function () {
             axios[requestType](url, this.data()).then(this.onSuccess.bind(this))['catch'](this.onFail.bind(this));
         }
     }, {
+        key: 'clearTinyMCE',
+        value: function clearTinyMCE() {
+            $('#Form_TaleForm_Content_ifr')[0].contentDocument.body.innerHTML = '';
+        }
+    }, {
         key: 'UpdateValues',
         value: function UpdateValues() {
             this.Title = $('#Form_TaleForm_Title').val();
@@ -155,8 +174,10 @@ var TaleForm = (function () {
     }, {
         key: 'resetForm',
         value: function resetForm() {
-            for (var field in originalData) {
+            for (var field in this.originalData) {
+                console.log('RESET' + this[field]);
                 this[field] = '';
+                console.log('RESET' + this[field]);
             }
         }
     }, {
@@ -168,16 +189,6 @@ var TaleForm = (function () {
         key: 'onFail',
         value: function onFail(error) {
             console.log(error.response.data);
-        }
-    }, {
-        key: 'tnyMCEInit',
-        value: function tnyMCEInit() {
-            tinymce.init({
-                selector: 'textarea#Form_TaleForm_Content',
-                plugins: "codesample",
-                codesample_languages: [{ text: 'HTML/XML', value: 'markup' }, { text: 'JavaScript', value: 'javascript' }, { text: 'CSS', value: 'css' }, { text: 'PHP', value: 'php' }, { text: 'Ruby', value: 'ruby' }, { text: 'Python', value: 'python' }, { text: 'Java', value: 'java' }, { text: 'C', value: 'c' }, { text: 'C#', value: 'csharp' }, { text: 'C++', value: 'cpp' }],
-                toolbar: "codesample"
-            });
         }
     }]);
 
@@ -224,12 +235,14 @@ exports['default'] = new Vue({
                 Content: ''
             }),
             tinyMce: {
-                selector: '#Form_TaleForm_Content',
+                //selector: '#Form_TaleForm_Content',
                 min_height: 800,
                 editor: '',
                 content: '',
-                errors: {},
-                options: {}
+                options: {
+                    min_height: 400,
+                    selector: 'textarea#Form_TaleForm_Content'
+                }
             }
 
         };
@@ -258,11 +271,20 @@ exports['default'] = new Vue({
         clearTale: function clearTale() {
             this.CurrentTale = ''; // clear CurrentTale data
         },
+        clearTaleForm: function clearTaleForm() {
+            console.log('what a clear');
+            this.TaleForm.resetForm();
+            // this.tinyMce.editor = '';
+            // this.tinyMce.content = '';
+            this.TaleForm.clearTinyMCE();
+        },
         fillTaleForm: function fillTaleForm() {
             //let form = new TaleForm(this.CurrentTale.Title, this.CurrentTale.Content);
-            var form = new _TaleForm2['default'](this.CurrentTale); // Pass Current Tale Object to Form
-            form.fillForm();
-            this.TaleForm = form;
+            //let form = new TaleForm(this.CurrentTale); // Pass Current Tale Object to Form
+            //form.fillForm();
+            this.TaleForm.updateData(this.CurrentTale);
+            this.TaleForm.fillForm();
+            //this.TaleForm = form;
         },
         onTaleFormSubmit: function onTaleFormSubmit() {
             // let form = new TaleForm(this.TaleForm);

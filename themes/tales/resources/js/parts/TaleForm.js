@@ -26,13 +26,26 @@ class TaleForm {
         console.log(this.Content);
     }
 
+    updateData(formData){
+        for (let field in formData){
+            this[field] = formData[field];
+        }
+    }
+
     fillForm()
     {
-        this.tnyMCEInit();
+        let FormID = $('#Form_TaleForm_ID');
         let FormTitle = $('#Form_TaleForm_Title');
 
-        FormTitle.val(this.Title);
-        tinymce.get("Form_TaleForm_Content").execCommand('mceInsertContent', false, this.Content);
+        if(this.Title){
+            FormTitle.val(this.Title);
+        }
+        if(this.Content){
+            FormID.val(this.ID);
+        }
+        if(this.Content){
+            tinymce.get("Form_TaleForm_Content").execCommand('mceInsertContent', false, this.Content);
+        }
     }
 
     // updateTale(taleForm, then){
@@ -50,6 +63,11 @@ class TaleForm {
             .then(this.onSuccess.bind(this))
             .catch(this.onFail.bind(this));
     }
+    
+    clearTinyMCE()
+    {
+        $('#Form_TaleForm_Content_ifr')[0].contentDocument.body.innerHTML = '';
+    }
 
     UpdateValues()
     {
@@ -61,9 +79,11 @@ class TaleForm {
 
     resetForm()
     {
-        for (let field in originalData)
+        for (let field in this.originalData)
         {
+            console.log('RESET' + this[field]);
             this[field] = '';
+            console.log('RESET' + this[field]);
         }
     }
 
@@ -73,27 +93,6 @@ class TaleForm {
 
     onFail(error) {
         console.log(error.response.data);
-    }
-
-    tnyMCEInit()
-    {
-        tinymce.init({
-            selector:'textarea#Form_TaleForm_Content',
-            plugins: "codesample",
-            codesample_languages: [
-                {text: 'HTML/XML', value: 'markup'},
-                {text: 'JavaScript', value: 'javascript'},
-                {text: 'CSS', value: 'css'},
-                {text: 'PHP', value: 'php'},
-                {text: 'Ruby', value: 'ruby'},
-                {text: 'Python', value: 'python'},
-                {text: 'Java', value: 'java'},
-                {text: 'C', value: 'c'},
-                {text: 'C#', value: 'csharp'},
-                {text: 'C++', value: 'cpp'}
-            ],
-            toolbar: "codesample"
-        });
     }
 
 }
