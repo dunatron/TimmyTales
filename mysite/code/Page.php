@@ -126,7 +126,6 @@ class Page_Controller extends ContentController {
 //        $taleBody = HtmlEditorField::create('Content', 'Tale Content')->setAttribute('required', true)
 //            ->setAttribute('v-model', 'tinyMce.editor')
 //            ->setAttribute(':options', 'tinyMce.options')
-//            ->setAttribute('@change', 'change')
 //            ->setAttribute(':content', 'tinyMce.content');
 
         $taleBody = LiteralField::create('tinyMceTag',
@@ -155,10 +154,12 @@ class Page_Controller extends ContentController {
 
     public function processTaleForm(SS_HTTPRequest $request)
     {
+
+        error_log(var_export($request, true));
         $data = json_decode($request->getBody());
 
-        error_log(var_export($data->tale, true));
-        $TaleData = $data->tale;
+        error_log(var_export($data, true));
+        $TaleData = $data;
 
         error_log(var_export('TaleID' . $TaleData->ID, true));
 
@@ -170,6 +171,8 @@ class Page_Controller extends ContentController {
         if($TaleData->Title)
         {
             $tale->Title = $TaleData->Title;
+        } else {
+            return 'Tale Title cannot be empty';
         }
         if($TaleData->Content)
         {
@@ -177,7 +180,7 @@ class Page_Controller extends ContentController {
         }
         $tale->write();
 
-        return 'successful tale update';
+        return $tale;
     }
 
     public function getTimmySVGIcon()

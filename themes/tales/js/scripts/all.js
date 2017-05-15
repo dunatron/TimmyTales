@@ -91,22 +91,29 @@ var _createClass = (function () { function defineProperties(target, props) { for
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var TaleForm = (function () {
-
-    // constructor(Title, Content)
-    // {
-    //     this.Title = Title;
-    //     this.Content = Content;
-    // }
-
-    function TaleForm(form) {
+    function TaleForm(formData) {
         _classCallCheck(this, TaleForm);
 
-        this.ID = form.ID;
-        this.Title = form.Title;
-        this.Content = form.Content;
+        // this.ID = form.ID;
+        // this.Title = form.Title;
+        // this.Content = form.Content;
+
+        this.originalData = formData;
+
+        for (var field in formData) {
+            this[field] = formData[field];
+        }
     }
 
     _createClass(TaleForm, [{
+        key: 'data',
+        value: function data() {
+            var data = Object.assign({}, this);
+
+            delete data.originalData;
+            return data;
+        }
+    }, {
         key: 'getFormData',
         value: function getFormData() {
             console.log(this.Title);
@@ -121,15 +128,21 @@ var TaleForm = (function () {
             FormTitle.val(this.Title);
             tinymce.get("Form_TaleForm_Content").execCommand('mceInsertContent', false, this.Content);
         }
+
+        // updateTale(taleForm, then){
+        //     axios.post('pagefunction/processTaleForm', {
+        //         tale: taleForm
+        //     })
+        //         .then(({data}) => then(data))
+        //         // .catch(error => {
+        //     //     console.log(error.response)
+        //     // })
+        //         .catch(error => this.errors = error.response.data)
+        // }
     }, {
         key: 'updateTale',
-        value: function updateTale(taleForm, then) {
-            axios.post('pagefunction/processTaleForm', {
-                tale: taleForm
-            }).then(function (_ref) {
-                var data = _ref.data;
-                return then(data);
-            });
+        value: function updateTale(requestType, url, taleForm, then) {
+            axios[requestType](url, this.data()).then(this.onSuccess.bind(this))['catch'](this.onFail.bind(this));
         }
     }, {
         key: 'UpdateValues',
@@ -138,6 +151,23 @@ var TaleForm = (function () {
             this.Content = $('#Form_TaleForm_Content_ifr')[0].contentDocument.body.innerHTML;
 
             console.log(this.Content);
+        }
+    }, {
+        key: 'resetForm',
+        value: function resetForm() {
+            for (var field in originalData) {
+                this[field] = '';
+            }
+        }
+    }, {
+        key: 'onSuccess',
+        value: function onSuccess(response) {
+            alert(response.data.message);
+        }
+    }, {
+        key: 'onFail',
+        value: function onFail(error) {
+            console.log(error.response.data);
         }
     }, {
         key: 'tnyMCEInit',
@@ -187,11 +217,18 @@ exports['default'] = new Vue({
         return {
             tales: [],
             CurrentTale: [],
-            TaleForm: [],
+            //TaleForm: [],
+            TaleForm: new _TaleForm2['default']({
+                ID: '',
+                Title: '',
+                Content: ''
+            }),
             tinyMce: {
                 selector: '#Form_TaleForm_Content',
+                min_height: 800,
                 editor: '',
                 content: '',
+                errors: {},
                 options: {}
             }
 
@@ -228,15 +265,14 @@ exports['default'] = new Vue({
             this.TaleForm = form;
         },
         onTaleFormSubmit: function onTaleFormSubmit() {
-            var _this3 = this;
-
-            var form = new _TaleForm2['default'](this.TaleForm);
-            form.UpdateValues();
-            form.updateTale(this.TaleForm, function (Data) {
-                return _this3.CurrentTale.Title = _this3.TaleForm.Title;
-            }, function (Data) {
-                return _this3.CurrentTale.Content = _this3.TaleForm.Content;
-            });
+            // let form = new TaleForm(this.TaleForm);
+            // form.UpdateValues();
+            //TaleForm.updateTale(this.TaleForm, (Data => this.CurrentTale.Title = this.TaleForm.Title), (Data => this.CurrentTale.Content = this.TaleForm.Content));
+            //form.updateTale(this.TaleForm, (Data => this.CurrentTale.Title = this.TaleForm.Title), (Data => this.CurrentTale.Content = this.TaleForm.Content));
+            this.TaleForm.updateTale('post', 'pagefunction/processTaleForm');
+        },
+        onSuccess: function onSuccess(response) {
+            alert(response.data.message);
         },
         change: function change() {
             console.log('a tinyMCE  change');

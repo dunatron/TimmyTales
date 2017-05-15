@@ -11,11 +11,18 @@ export default new Vue({
         return {
             tales: [],
             CurrentTale: [],
-            TaleForm: [],
+            //TaleForm: [],
+            TaleForm: new TaleForm({
+                ID: '',
+                Title: '',
+                Content: ''
+            }),
             tinyMce: ({
                 selector: '#Form_TaleForm_Content',
+                min_height: 800,
                 editor: '',
                 content: '',
+                errors: {},
                 options: ({})
             }),
 
@@ -44,9 +51,14 @@ export default new Vue({
             this.TaleForm = form;
         },
         onTaleFormSubmit() {
-            let form = new TaleForm(this.TaleForm);
-            form.UpdateValues();
-            form.updateTale(this.TaleForm, (Data => this.CurrentTale.Title = this.TaleForm.Title), (Data => this.CurrentTale.Content = this.TaleForm.Content));
+            // let form = new TaleForm(this.TaleForm);
+            // form.UpdateValues();
+            //TaleForm.updateTale(this.TaleForm, (Data => this.CurrentTale.Title = this.TaleForm.Title), (Data => this.CurrentTale.Content = this.TaleForm.Content));
+            //form.updateTale(this.TaleForm, (Data => this.CurrentTale.Title = this.TaleForm.Title), (Data => this.CurrentTale.Content = this.TaleForm.Content));
+            this.TaleForm.updateTale('post', 'pagefunction/processTaleForm');
+        },
+        onSuccess(response){
+            alert(response.data.message)
         },
         change() {
             console.log('a tinyMCE  change');
