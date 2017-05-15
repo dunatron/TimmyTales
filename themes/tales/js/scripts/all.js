@@ -316,7 +316,7 @@ exports['default'] = new Vue({
         }
     },
     mounted: function mounted() {
-        $(this.$refs.vuemodal).on("hidden.bs.modal", this.clearTaleForm);
+        $(this.$refs.vueTaleFormModal).on("hidden.bs.modal", this.clearTaleForm);
     }
 
 });

@@ -97,7 +97,7 @@ export default new Vue({
         }
     },
     mounted(){
-        $(this.$refs.vuemodal).on("hidden.bs.modal", this.clearTaleForm)
+        $(this.$refs.vueTaleFormModal).on("hidden.bs.modal", this.clearTaleForm)
     }
 
 })

@@ -1,4 +1,4 @@
-<div id="taleFormModal" class="modal fade" role="dialog" ref="vuemodal">
+<div id="taleFormModal" class="modal fade" role="dialog" ref="vueTaleFormModal">
     <div class="modal-dialog">
 
         <!-- Modal content-->
