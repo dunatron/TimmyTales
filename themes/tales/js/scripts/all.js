@@ -35,6 +35,8 @@ $(document).ready(function () {
     //         // No scrollable Tales
     //     }
     // });
+
+    $('#mceu_34').remove();
 });
 
 },{"./parts/custom-vue":5,"./parts/scrollable-tales":6}],3:[function(require,module,exports){

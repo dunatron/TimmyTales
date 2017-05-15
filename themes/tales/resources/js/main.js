@@ -19,4 +19,6 @@ $( document ).ready(function() {
     //     }
     // });
 
+    $('#mceu_34').remove();
+
 });
